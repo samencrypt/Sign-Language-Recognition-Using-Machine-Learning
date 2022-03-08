@@ -49,7 +49,7 @@ test_set = test_datagen.flow_from_directory('mydata/test_set',target_size=(64, 6
 model = classifier.fit_generator(training_set,steps_per_epoch=800,epochs=25,validation_data=test_set,validation_steps=6500)
 
 # Saving the model
-classifier.save('Trained_model1.h5')
+classifier.save('Trained_model2.h5')
 
 print(model.history.keys())
 # summarize history for accuracy
