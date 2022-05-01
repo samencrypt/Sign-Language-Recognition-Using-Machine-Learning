@@ -14,11 +14,8 @@
     ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-      type="text/css"
-    />
+    
+<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
   </head>
 
   <body>
@@ -26,116 +23,47 @@
       <div class="layer">
         <!-- Navigation Bar-->
         <div class="navbar">
-          <a href="index.html" class="logo-text"
-            ><img
-              src="{{ url_for('static', filename='img/logo.png') }}"
-              alt="logo"
-              class="logo"
-            />Let Hands Speak</a
-          >
+          <a href="{{ url_for('index') }}" class="logo-text text-warning"><img src="{{ url_for('static',filename='img/logo.png') }}" alt="logo" class="logo">Let Hands Speak</a>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="{{ url_for('index') }}" class="text-warning">Home</a></li>
+            <li><a href="{{ url_for('about') }}"class="text-warning">About</a></li>
+             <li><a data-target="#exampleModal" role="button" class="text-warning" data-toggle="modal">Help</a>
+            </li>
           </ul>
         </div>
 
         <!-- Conatent -->
-        <div class="container" style="left: 5%">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="booth">
-                <!--video id="video" width="100%"
-                    height="100%" autoplay>
-                  </video-->
-                <img src="{{ url_for('video') }}" width="100%" height="100%" />
-              </div>
-
-              <div class="text-right">
-                <a href="#!" class="btn btn-danger" onClick="stop()">
-                  Stop Cam
-                </a>
-                <a href="#!" class="btn btn-success" onClick="start()">
-                  Start Cam
-                </a>
-              </div>
-            </div>
-
-            <div class="offset-1 col-sm-5">
-              <div class="form-floating" style="margin-top: 30px">
-                <textarea
-                  class="form-control"
-                  placeholder="Converted Output"
-                  id="floatingTextarea2"
-                  style="height: 360px; width: 580px"
-                ></textarea>
-                <label for="floatingTextarea2">Output</label>
-              </div>
-            </div>
+        <div class="container"" >
+          
+                <img src="{{ url_for('video') }}" width="85%" height="80%" />
+                <a href="{{ url_for('close') }}" class="btn btn-danger">Close</a>
           </div>
         </div>
         <!-- Footer-->
         <footer>
           <ul>
-            <li>
-              <a href="" target="_blank"
-                ><img
-                  src="{{ url_for('static', filename='img/icon-fb') }}"
-                  alt="logo"
-              /></a>
-            </li>
-            <li>
-              <a href="" target="_blank"
-                ><img
-                  src="{{ url_for('static', filename='img/icon-insta') }}"
-                  alt="logo"
-              /></a>
-            </li>
-            <li>
-              <a href="" target="_blank"
-                ><img
-                  src="{{ url_for('static', filename='img/icon-yt') }}"
-                  alt="logo"
-              /></a>
-            </li>
-            <li>
-              <a href="" target="_blank"
-                ><img
-                  src="{{ url_for('static', filename='img/icon-tweet') }}"
-                  alt="logo"
-              /></a>
-            </li>
+            <li><a href="" target="_blank"><img src="{{ url_for('static',filename='img/icon-fb.png') }}" alt="logo"></a></li>
+            <li><a href="" target="_blank"><img src="{{ url_for('static',filename='img/icon-insta.png') }}" alt="logo"></a></li>
+            <li><a href="" target="_blank"><img src="{{ url_for('static',filename='img/icon-yt.png') }}" alt="logo"></a></li>
+            <li><a href="" target="_blank"><img src="{{ url_for('static',filename='img/icon-tweet.png') }}" alt="logo"></a></li>
           </ul>
         </footer>
       </div>
     </div>
-    <script>
-      var stop = function () {
-        var stream = video.srcObject;
-        var tracks = stream.getTracks();
-        for (var i = 0; i < tracks.length; i++) {
-          var track = tracks[i];
-          track.stop();
-        }
-        video.srcObject = null;
-      };
-      var start = function () {
-        var video = document.getElementById('video'),
-          vendorUrl = window.URL || window.webkitURL;
-        if (navigator.mediaDevices.getUserMedia) {
-          navigator.mediaDevices
-            .getUserMedia({ video: true })
-            .then(function (stream) {
-              video.srcObject = stream;
-            })
-            .catch(function (error) {
-              console.log('Something went wrong!');
-            });
-        }
-      };
-      $(function () {
-        start();
-      });
-    </script>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ASL Gestures</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{{ url_for('static',filename='img/asl.png') }}" alt="logo" width="103%" height="120%">
+      </div>
+    </div>
+  </div>
+</div>
+   
   </body>
 </html>

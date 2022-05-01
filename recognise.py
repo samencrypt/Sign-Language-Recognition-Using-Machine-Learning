@@ -110,7 +110,7 @@ while True:
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
     cv2.putText(frame, img_text, (30, 400),
-                cv2.FONT_HERSHEY_TRIPLEX, 1.5, (0, 255, 0))
+                cv2.FONT_HERSHEY_TRIPLEX, 1.5, (0, 0, 255),2)
     cv2.imshow("test", frame)
     cv2.imshow("mask", mask)
 
