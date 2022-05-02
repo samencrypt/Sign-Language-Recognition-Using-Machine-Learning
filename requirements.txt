@@ -1,14 +1,14 @@
 # 1.Run 'python -m venv venv' in terminal
 # 2.Then run 'pip install -r requirements.txt'
 
-pillow
-flask
-keras
-tensorflow
-opencv-python
-numpy             
-
-h5py>=2.9.0
+tensorflow         
+Flask==2.1.1
+h5py==3.6.0
+keras==2.8.0
+matplotlib==3.5.1
+numpy==1.22.3
+opencv_python==4.5.5.64
+Pillow==9.1.0
 Jinja2>=3.0
 click>=8.0
 itsdangerous>=2.0

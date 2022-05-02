@@ -17,7 +17,7 @@ a:hover {
 }
 /* ------------------Backgorund------------------ */
 .slider {
-  background-image: url('../img/2.jpg');
+  background-image: url('../img/5.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -26,7 +26,7 @@ a:hover {
   animation: slide 20s ease infinite;
 }
 .bg {
-  background-image: url('../img/2.jpg');
+  background-image: url('../img/5.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -176,14 +176,14 @@ footer ul li a img:hover {
 /*------------------Background Slider------------------ */
 @keyframes slide {
   33% {
-    background-image: url('../img/1.jpg');
+    background-image: url('../img/4.jpg');
   }
 
   66% {
-    background-image: url('../img/2.jpg');
+    background-image: url('../img/5.jpg');
   }
 
   100% {
-    background-image: url('../img/3.jpg');
+    background-image: url('../img/6a.jpg');
   }
 }
