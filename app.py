@@ -13,7 +13,7 @@ camera = cv2.VideoCapture(0)
 
 image_x, image_y = 64, 64
 
-classifier = load_model('Trained_model1.h5')
+classifier = load_model('Trained_model.h5')
 
 def preprocessing(imcrop):
     lower_blue = np.array([0,58,50])
@@ -97,10 +97,10 @@ def generate_frames():
             break
         else:
             frame = cv2.flip(frame, 1)
-            img = cv2.rectangle(frame,(425,100),(625,300),(0,255,0),2)
+            img = cv2.rectangle(frame,(425,100),(625,300),(88,65,15),2)
             imcrop = img[102:298, 427:623]
             cv2.putText(frame, img_text, (24, 400),
-                cv2.FONT_HERSHEY_TRIPLEX, 1.5, (0, 0, 255),2)
+                cv2.FONT_HERSHEY_TRIPLEX, 1.5,(14,14,135),2)
             cv2.imwrite('1.png',imcrop)
             preprocessing(imcrop)
             img_text = predictor()
