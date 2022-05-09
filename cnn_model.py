@@ -46,15 +46,15 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 training_set = train_datagen.flow_from_directory('mydata/training_set',target_size=(64, 64),batch_size=32,class_mode='categorical')
 test_set = test_datagen.flow_from_directory('mydata/test_set',target_size=(64, 64),batch_size=32,class_mode='categorical')
 
-model = classifier.fit_generator(training_set,steps_per_epoch=800,epochs=25,validation_data=test_set,validation_steps=6500)
+model = classifier.fit(training_set,steps_per_epoch=800,epochs=25,validation_data=test_set,validation_steps=6500)
 
 # Saving the model
-classifier.save('Trained_model2.h5')
+classifier.save('Trained_model.h5')
 
 print(model.history.keys())
 # summarize history for accuracy
-plt.plot(model.history['acc'])
-plt.plot(model.history['val_acc'])
+#plt.plot(model.history['accuracy'])
+plt.plot(model.history['val_accuracy'])
 plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
@@ -62,7 +62,7 @@ plt.legend(['train', 'test'], loc='upper left')
 plt.show()
 # summarize history for loss
 
-plt.plot(model.history['loss'])
+#plt.plot(model.history['loss'])
 plt.plot(model.history['val_loss'])
 plt.title('model loss')
 plt.ylabel('loss')

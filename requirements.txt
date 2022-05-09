@@ -19,3 +19,4 @@ flatbuffers>=1.12
 six>=1.12.0
 termcolor>=1.1.0
 tf-estimator-nightly==2.8.0.dev2021122109
+SciPy>=1.8.0
