@@ -1,4 +1,5 @@
-# importing the Keras libraries and packages
+ #importing the Keras libraries and packages
+import pandas as pd
 import matplotlib.pyplot as plt
 import h5py
 from keras.preprocessing.image import ImageDataGenerator
@@ -46,26 +47,15 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 training_set = train_datagen.flow_from_directory('mydata/training_set',target_size=(64, 64),batch_size=32,class_mode='categorical')
 test_set = test_datagen.flow_from_directory('mydata/test_set',target_size=(64, 64),batch_size=32,class_mode='categorical')
 
-model = classifier.fit(training_set,steps_per_epoch=800,epochs=25,validation_data=test_set,validation_steps=6500)
+history = classifier.fit_generator(training_set,steps_per_epoch=1422,epochs=15,validation_data=test_set,validation_steps=204)
 
 # Saving the model
 classifier.save('Trained_model.h5')
 
-print(model.history.keys())
-# summarize history for accuracy
-#plt.plot(model.history['accuracy'])
-plt.plot(model.history['val_accuracy'])
-plt.title('model accuracy')
-plt.ylabel('accuracy')
-plt.xlabel('epoch')
-plt.legend(['train', 'test'], loc='upper left')
-plt.show()
-# summarize history for loss
+#plotting graph
 
-#plt.plot(model.history['loss'])
-plt.plot(model.history['val_loss'])
-plt.title('model loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['train', 'test'], loc='upper left')
+pd.DataFrame(history.history).plot(figsize = (8,5))
+plt.grid(True)
+plt.gca().set_ylim(0,1)
 plt.show()
+
