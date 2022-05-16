@@ -2,15 +2,11 @@ from keras.models import load_model
 import cv2
 import numpy as np
 
-
 def nothing(x):
     pass
 
-
 image_x, image_y = 64, 64
-
-classifier = load_model('Trained_model1.h5')
-
+classifier = load_model('Trained_model.h5')
 
 def predictor():
     import numpy as np
@@ -100,8 +96,7 @@ while True:
     u_s = cv2.getTrackbarPos("U - S", "Trackbars")
     u_v = cv2.getTrackbarPos("U - V", "Trackbars")
 
-    img = cv2.rectangle(frame, (425, 100), (625, 300),
-                        (0, 255, 0), thickness=2, lineType=8, shift=0)
+    img = cv2.rectangle(frame, (425, 100), (625,300),(88,65,15),2)
 
     lower_blue = np.array([l_h, l_s, l_v])
     upper_blue = np.array([u_h, u_s, u_v])
@@ -109,8 +104,7 @@ while True:
     hsv = cv2.cvtColor(imcrop, cv2.COLOR_BGR2HSV)
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
-    cv2.putText(frame, img_text, (30, 400),
-                cv2.FONT_HERSHEY_TRIPLEX, 1.5, (0, 0, 255),2)
+    cv2.putText(frame, img_text,(30, 400),cv2.FONT_HERSHEY_TRIPLEX, 1.5,(14,14,135),2)
     cv2.imshow("test", frame)
     cv2.imshow("mask", mask)
 

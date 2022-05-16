@@ -3,20 +3,16 @@ import time
 import numpy as np
 import os
 
-
 def nothing(x):
     pass
 
-
 image_x, image_y = 64, 64
-
 
 def create_folder(folder_name):
     if not os.path.exists('./mydata/training_set/' + folder_name):
         os.mkdir('./mydata/training_set/' + folder_name)
     if not os.path.exists('./mydata/test_set/' + folder_name):
         os.mkdir('./mydata/test_set/' + folder_name)
-
 
 def capture_images(ges_name):
     create_folder(str(ges_name))
@@ -53,9 +49,7 @@ def capture_images(ges_name):
             u_s = cv2.getTrackbarPos("U - S", "Trackbars")
             u_v = cv2.getTrackbarPos("U - V", "Trackbars")
 
-            img = cv2.rectangle(frame, (425, 100), (625, 300),
-                                (0, 255, 0), thickness=2, lineType=8, shift=0)
-
+            img = cv2.rectangle(frame, (425, 100), (625,300),(88,65,15),2)
             lower_blue = np.array([l_h, l_s, l_v])
             upper_blue = np.array([u_h, u_s, u_v])
             imcrop = img[102:298, 427:623]
@@ -64,8 +58,7 @@ def capture_images(ges_name):
 
             result = cv2.bitwise_and(imcrop, imcrop, mask=mask)
 
-            cv2.putText(frame, str(img_counter), (30, 400),
-                        cv2.FONT_HERSHEY_TRIPLEX, 1.5, (127, 127, 255))
+            cv2.putText(frame, str(img_counter), (30, 400),cv2.FONT_HERSHEY_TRIPLEX, 1.5,(14,14,135),2)
             cv2.imshow("test", frame)
             cv2.imshow("mask", mask)
             cv2.imshow("result", result)
