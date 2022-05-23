@@ -1,0 +1,23 @@
+# 1.Run 'python -m venv venv' in terminal
+# 2.Then run 'pip install -r requirements.txt'
+
+tensorflow
+pandas>=1.4.2         
+Flask==2.1.1
+h5py==3.6.0
+keras==2.8.0
+matplotlib==3.5.1
+numpy==1.22.3
+opencv_python==4.5.5.64
+Pillow==9.1.0
+Jinja2>=3.0
+click>=8.0
+itsdangerous>=2.0
+Werkzeug>=2.0
+libclang>=9.0.1
+gast>=0.2.1
+flatbuffers>=1.12
+six>=1.12.0
+termcolor>=1.1.0
+tf-estimator-nightly==2.8.0.dev2021122109
+SciPy>=1.8.0
