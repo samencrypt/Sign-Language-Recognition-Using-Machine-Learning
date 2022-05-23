@@ -5,14 +5,10 @@ from PIL import Image
 import cv2
 import time
 import numpy as np
-#import Recognize
 
 app= Flask(__name__)
 camera = cv2.VideoCapture(0)
-
-
 image_x, image_y = 64, 64
-
 classifier = load_model('Trained_model.h5')
 
 def preprocessing(imcrop):
